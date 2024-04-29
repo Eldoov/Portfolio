@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+  
+  <title>Frontend Mentor | QR code component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    body {background:  hsl(212, 45%, 89%); font-family:'Outfit';}
+
+    .center {position: fixed; left: 50%; top: 50%;transform: translate(-50%, -50%); background: white; border-radius: 20px; padding: 1em 1em 2em 1em; box-shadow: 0px 3px 20px -15px hsl(220, 15%, 55%);}
+    .center img {width: 100%; border-radius: 10px;}
+
+    .paragraph {padding: 0 1em 0 1em; text-align: center;}
+    .paragraph h3{font-weight: 700; color: hsl(218, 44%, 22%);}
+    .paragraph p{font-weight: 400; color: hsl(220, 15%, 55%); font-size: 15px;}
+
+    @media only screen and (min-width:1080px){
+      .center {max-width:20%;}
+    }
+
+    @media only screen and (max-width:1080px){
+      .center {max-width:30%;}
+    }
+    
+    @media only screen and (max-width:680px) and (min-width:350px){
+      .center {left: 50%; top: 50%;min-width:70%;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="center">
+
+    <img src="images/image-qr-code.png">
+
+    <div class="paragraph">
+      <h3>
+        Improve your front-end skills by building projects
+      </h3>
+      <p>
+        Scan the QR code to visit Frontend Mentor and take your coding skills to the next level.
+      </p>
+    </div>
+
+  </div>
+  
+</body>
+</html>
