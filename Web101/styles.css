@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+table {
+    min-width: 600px;
+}
