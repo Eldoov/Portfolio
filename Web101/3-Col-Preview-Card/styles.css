@@ -11,7 +11,7 @@ body {
     font-size: 15px;
     display: flex;
     align-items: center;
-    min-height: 96vh;
+    min-height: 100vh;
 }
 
 .container {
