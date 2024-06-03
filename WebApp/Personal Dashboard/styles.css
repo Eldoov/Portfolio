@@ -1,0 +1,150 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Jersey+25&display=swap');
+
+body {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    display: flex;
+    align-items: flex-start;
+    height: 96vh;
+}
+
+main {
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-link {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.social-link a {
+    flex: 1; 
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+.social-link a:hover {
+	text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: orangered;
+}
+
+.social-link a:before, 
+.social-link a:after {
+    content: "\00a0\00a0\00a0";
+}
+
+
+h1 {
+    margin: 20px 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+h1:hover {
+    color: orangered;
+}
+
+hr {
+    width: 100%;
+    border: 1px dotted black;
+    margin: 0 0 20px 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+
+
+.todolist iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.todolist {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    width: 100%;
+    height: 500px;
+}
+
+.block {
+    padding: 100px;
+    text-align: center;
+}
+
+.item {
+    border: solid 1px black;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 5px 5px 0px black;
+}
+
+.weather_widget{
+    display: flex;
+    align-items: center;
+}
+
+.item3 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.btns {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin: 0 auto;
+    padding: 16px 10px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.btns a {
+    flex: 1; 
+    text-align: center;
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	background-color: white;
+	padding: 0.8em 1.4em;
+	border-radius: 20px;
+	border: black 1.5px solid;
+	transition: 0.3s;
+}
+
+.btns a:hover {
+	color: white;
+	background-color: black;
+}
+
+
+.note iframe {
+    width: 100%;
+    height: 100%;
+}
