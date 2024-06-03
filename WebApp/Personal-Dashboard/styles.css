@@ -92,7 +92,7 @@ hr {
 }
 
 .block {
-    padding: 100px;
+    padding: 20px 30px;
     text-align: center;
 }
 
@@ -148,3 +148,31 @@ hr {
     width: 100%;
     height: 100%;
 }
+
+.cardboard1 {
+    color: black;
+    background-image: url("img/cardboard.jpg");
+    text-align: left;
+    box-shadow: 5px 5px 6px grey;
+    border-radius: 2px;
+    rotate: -3deg;
+}
+
+.cardboard {
+    color: black;
+    background-image: url("img/cardboard.jpg");
+    text-align: left;
+    box-shadow: 5px 5px 6px grey;
+    border-radius: 2px;
+    rotate: 11deg;
+}
+
+.cardboard img, .cardboard1 img {
+    width: 10%;
+}
+
+#mood {
+    height: 100px;
+    width: 250px;
+}
+
