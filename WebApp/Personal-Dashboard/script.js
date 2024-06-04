@@ -1,6 +1,6 @@
 async function postToMastodon() {
     const content = document.getElementById('statusContent').value;
-    const accessToken = 'RcOn3COmNK56tUXakanY1WSUo-AgagUdOKeSQqQEhRU'; // 替换为你的访问令牌
+    const accessToken = ''; // 
 
     if (!content) {
         alert('Please enter some content to post.');
