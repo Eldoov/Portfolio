@@ -11,6 +11,7 @@ body {
     display: flex;
     align-items: flex-start;
     height: 96vh;
+    min-width: 1160px;
 }
 
 main {
@@ -196,7 +197,7 @@ hr {
 
 .mstd-post button {
     font-family: "Jersey 25", sans-serif;
-    margin-top: 10px;
+    margin-top: 7px;
     color: black;
     font-size: 20px;
     background-color: white;
