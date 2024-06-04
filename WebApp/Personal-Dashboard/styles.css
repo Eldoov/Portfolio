@@ -64,6 +64,10 @@ h1:hover {
     color: orangered;
 }
 
+h2 {
+    margin: 0;
+}
+
 hr {
     width: 100%;
     border: 1px dotted black;
@@ -126,6 +130,7 @@ hr {
 }
 
 .btns a {
+    font-family: "Jersey 25", sans-serif;
     flex: 1; 
     text-align: center;
 	text-decoration: none;
@@ -184,16 +189,18 @@ hr {
 }
 
 .mstd-post textarea {
+    font-family: "Jersey 25", sans-serif;
     width: 90%;
     height: 50%;
 }
 
 .mstd-post button {
+    font-family: "Jersey 25", sans-serif;
     margin-top: 10px;
     color: black;
     font-size: 20px;
     background-color: white;
-    padding: 0.4em 2em;
+    padding: 0.3em 2.5em;
     border-radius: 20px;
     border: black 1.5px solid;
     transition: 0.3s;
