@@ -188,6 +188,8 @@ hr {
 }
 
 .mstd-post {
+    grid-column-start: 2;
+    padding: 10px 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
