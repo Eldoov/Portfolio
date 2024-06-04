@@ -23,15 +23,9 @@
 			<div class="item todolist">
 				<iframe src="https://app.todoist.com/app" title="todoist"></iframe>
 			</div>
-			<div class="cardboard1">
-				<div class="block">
-					<div class="pin"><img src="img/pin.png"></div>
-					<form action="">
-						<label for="lname">Journal Post</label>
-						<input type="text" id="mood" name="mood"><br><br>
-						<input type="submit" value="Can't Submit">
-					</form>
-				</div>
+			<div class="item mstd-post">
+				<textarea id="statusContent" placeholder="What's on your mind?"></textarea><br>
+				<button onclick="postToMastodon()">Post</button>
 			</div>
 			<div class="cardboard">
 				<div class="block">
@@ -52,5 +46,6 @@
 			</div>
 		</div>
 	</main>
+	<script src="script.js"></script>
 </body>
 </html>
