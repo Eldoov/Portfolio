@@ -1,6 +1,6 @@
 async function postToMastodon() {
     const content = document.getElementById('statusContent').value;
-    const accessToken = ''; // 
+    const accessToken = 'RcOn3COmNK56tUXakanY1WSUo-AgagUdOKeSQqQEhRU'; // 
 
     if (!content) {
         alert('Please enter some content to post.');
