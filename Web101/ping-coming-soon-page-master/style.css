@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --blue: hsl(223, 87%, 63%);
+    --paleblue: hsl(223, 100%, 88%);
+    --lightred: hsl(354, 100%, 66%);
+    --grey: hsl(0, 0%, 59%);
+    --darkblue: hsl(209, 33%, 12%);
+}
+
+body {
+    font-family: "Libre Franklin";
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    min-height: 96vh;
+    min-width: 375px;
+}
+
+main {
+    margin: auto;
+    text-align: center;
+    width:800px;
+    padding: 1.2rem 0;
+}
+
+h1 {
+    margin-top: 2rem;
+    color: var(--grey);
+    font-weight: 200;
+}
+
+span {
+    color: var(--darkblue);
+    font-weight: 700;
+}
+
+p {
+    color: var(--darkblue);
+    font-weight: 200;
+    margin: 0;
+}
+
+#dashboard {
+    width: 80%;
+}
+
+form {
+    padding: 2rem 1rem;
+    margin-bottom: 2.5rem;
+}
+
+#email {
+    border-radius: 2rem;
+    border: 1px solid var(--grey);
+    padding: 1.2rem 2rem;
+    font-size: 18px;
+    width:55%;
+}
+
+#submit {
+    border-radius: 2rem;
+    border: 1px solid var(--blue);
+    background-color: var(--blue);
+    padding: 1.2rem 3rem;
+    color: white;
+    font-size: 18px;
+    margin-left: 0.5rem;
+    width: 25%;
+    cursor: pointer;
+    box-shadow: 1px 10px 20px -10px var(--blue);
+}
