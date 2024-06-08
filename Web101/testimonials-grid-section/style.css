@@ -1,0 +1,133 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --purple: hsl(263, 55%, 52%);
+    --darkgreyblue: hsl(217, 19%, 35%);
+    --darkblackblue: hsl(219, 29%, 14%);
+    --lightgrey: hsl(0, 0%, 81%);
+    --lightgreyblue: hsl(210, 46%, 95%);
+    --lightpurple: rgb(186, 148, 248);
+}
+
+body {
+    font-family: 'Barlow Semi Condensed';
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    min-height: 96vh;
+    min-width: 375px;
+    background-color: var(--lightgreyblue);
+}
+
+main {
+    padding: 2rem;
+    margin: auto 0;
+    display: grid;
+    grid-template-columns: 1;
+    gap: 2.2rem;
+}
+
+p {
+    line-height: 1.3rem;
+    font-weight: 500;
+}
+
+.item {
+    border-radius: 0.7rem;
+    box-shadow: 1px 10px 30px -10px rgb(86, 86, 86);
+    color: white;
+    overflow: hidden;
+    padding: 2.3rem;
+}
+
+.purple {
+    background-color: var(--purple);
+    background-image: url("images/bg-pattern-quotation.svg");
+    background-position: right 10% top;
+    background-repeat: no-repeat;
+}
+
+.whitelong, .whiteshort {
+    background-color: white;
+    color: var(--darkgreyblue);
+}
+
+.grey {
+    background-color: var(--darkgreyblue);
+
+}
+
+.black {
+    background-color: var(--darkblackblue);
+
+}
+
+.userinfo {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.userinfo img {
+    border-radius: 50%;
+    width:2.3rem;
+    border: 3px solid rgba(255, 255, 255, 0) ;
+}
+
+.userinfo h3 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.userinfo span {
+    opacity: 50%;
+    font-weight: 400;
+}
+
+.item p {
+    opacity: 70%;
+}
+
+.purple img, .black img {
+    border: 3px solid var(--lightpurple) ;
+}
+
+
+@media screen and (min-width: 1100px){
+    main {
+        grid-template-areas: 
+        "a a b e"
+        "c d d e";
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        font-weight: 600;
+    }
+
+    .purple {
+        grid-area: a;
+    }
+
+    .grey {
+        grid-area: b;
+    }
+
+    .whiteshort {
+        grid-area: c;
+    }
+
+    .black {
+        grid-area: d;
+    }
+
+    .whitelong {
+        grid-area: e;
+    }
+
+
+}
