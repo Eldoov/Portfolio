@@ -1,9 +1,7 @@
-const btns = document.getElementById('btns');
+const btn = document.querySelectorAll('.btns button');
 
-if (btns) {
-    btns.addEventListener('click', (event) => {
-        var ddd = event.target.id;
-        console.log(ddd);
+btn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        console.log("good");
     })
-}
-
+})
