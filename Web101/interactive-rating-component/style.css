@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --orange: hsl(25, 97%, 53%);
+    --lightgrey: hsl(217, 12%, 63%);
+    --darkblue: hsl(213, 19%, 18%);
+    --verydarkblue: hsl(216, 12%, 8%);
+    --verydarkblue2: hsl(216, 19%, 12%);
+    --darkgrey: hsl(217, 12%, 23%);
+}
+
+body {
+    font-family: 'Overpass';
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    min-height: 96vh;
+    min-width: 375px;
+    background-color: var(--verydarkblue);
+    color: white;
+}
+
+main {
+    margin: 1rem auto;
+    text-align: left;
+    width:800px;
+    padding: 1.2rem 0;
+    border-radius: 1rem;
+    width: 350px;
+    padding: 2rem;
+    display: flex;
+    background: linear-gradient(var(--darkblue), var(--verydarkblue2));
+}
+
+.rating {
+    display: block;
+}
+
+
+.star{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 1rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--darkgrey);
+}
+
+p {
+    color: var(--lightgrey);
+}
+
+
+.ratingbtns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.btns {
+    margin: .7rem 0 0 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.btns button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--darkgrey);
+    color: var(--lightgrey);
+    width: 1.5rem;
+    height: 1.5rem;
+    padding:1.5rem;
+    border: 0;
+    border-radius: 50%;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btns button:hover {
+    background-color: var(--orange);
+    color: var(--verydarkblue);
+}
+
+.btns button:focus, .submit:hover {
+    background-color: white;
+    color: var(--verydarkblue);
+}
+
+.submit {
+    background-color: var(--orange);
+    color: var(--verydarkblue);
+    border: 0;
+    border-radius: 30px;
+    width:100%;
+    padding: .7rem;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    cursor: pointer;
+}
+
+
+.thankyou {
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.res {
+    color: var(--orange);
+    background-color: var(--darkgrey);
+    padding:.3rem 1rem 0.2rem 1rem;
+    border-radius: 30px;
+    margin: 2rem 0 1rem 0;
+    font-weight: 400;
+}
+
+.thankyou h1{
+    margin-bottom:0;
+}
