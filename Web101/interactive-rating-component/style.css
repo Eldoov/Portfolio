@@ -89,9 +89,14 @@ p {
     color: var(--verydarkblue);
 }
 
-.btns button:focus, .submit:hover {
+.submit:hover {
     background-color: white;
     color: var(--verydarkblue);
+}
+
+.checked {
+    background-color: white !important;
+    color: var(--verydarkblue) !important;
 }
 
 .submit {
@@ -110,7 +115,6 @@ p {
 
 .thankyou {
     text-align: center;
-    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -126,4 +130,8 @@ p {
 
 .thankyou h1{
     margin-bottom:0;
+}
+
+.hidden {
+    display: none !important;
 }

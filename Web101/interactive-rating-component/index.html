@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <!--<script src="betterscript.js"></script>-->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | Interactive rating component</title>
 
@@ -22,19 +20,19 @@
       to help us improve our offering!</p>
       <div class="ratingbtns">
         <div class="btns" id="btns">
-          <button onclick="getRating(1)">1</button>
-          <button onclick="getRating(2)">2</button>
-          <button onclick="getRating(3)">3</button>
-          <button onclick="getRating(4)">4</button>
-          <button onclick="getRating(5)">5</button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
         </div>
-        <input class="submit" type="submit" value="SUBMIT" onclick="showRes()">
+        <input class="submit" type="submit" value="SUBMIT">
       </div>
     </div>
     <!-- Rating state end -->
     
     <!-- Thank you state start -->
-    <div class="thankyou" id="thankyou">
+    <div class="thankyou hidden" id="thankyou">
       <img src="images/illustration-thank-you.svg">
       <div class="res">You selected <span id="res"></span> out of 5</div>
       <h1>Thank you!</h1>
@@ -43,5 +41,6 @@
     </div>
     <!-- Thank you state end -->
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
