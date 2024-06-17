@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --cyan: hsl(193, 38%, 86%);
+    --green: hsl(150, 100%, 66%);
+    --greyblue: hsl(217, 19%, 38%);
+    --darkgreyblue: hsl(217, 19%, 24%);
+    --darkblue: hsl(218, 23%, 16%);
+}
