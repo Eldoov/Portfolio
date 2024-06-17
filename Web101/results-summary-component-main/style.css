@@ -16,4 +16,147 @@
 
 body {
     font-family: 'Hanken Grotesk';
+    min-height: 96vh;
+    min-width: 375px;
+    display: flex;
+    align-items: center;
+    background-color: var(--persianblue);
+}
+
+main {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 600px;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 10px 10px 50px hsla(241, 100%, 89%, 60%);
+}
+
+.left-container, .right-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container {
+    padding: 1.5rem 2.5rem;
+    color: var(--lavender);
+    align-items: center;
+    background-image: linear-gradient(var(--lightslateblue), var(--lightroyalblue));
+    border-radius: 30px;
+}
+
+.circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    padding: 2rem;
+    background-image: linear-gradient(var(--violetblue), hsla(241, 81%, 54%, 40%));
+    margin: 1rem 0;
+}
+
+#res {
+    font-size: 40px;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 0;
+}
+
+h4 {
+    margin-top: 0;
+}
+
+.left-container p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.right-container {
+    padding: 1.5rem 2rem;
+    background-color: white;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.score-item {
+    padding: 0.6rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.score-item img {
+    width: 1rem;
+    padding-right: 0.6rem;
+}
+
+.stats {
+    display: flex;
+}
+
+.score {
+    color: gray;
+}
+
+span {
+    color: var(--darkblue);
+    font-weight: 700;
+}
+
+#stats0 {
+    background-color: hsla(0, 100%, 67%, 10%);
+    color: var(--lightred);
+}
+
+#stats1 {
+    background-color: hsla(39, 100%, 67%, 10%);
+    color: var(--orangeyellow);
+}
+
+#stats2 {
+    background-color: hsla(166, 100%, 67%, 10%);
+    color: var(--greenteal);
+}
+
+#stats3 {
+    background-color: hsla(234, 100%, 67%, 10%);
+    color: var(--cobaltblue);
+}
+
+button {
+    background-color: var(--darkblue);
+    color: white;
+    border-radius: 50px;
+    padding: 0.75rem 0;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-image: linear-gradient(var(--lightslateblue), var(--lightroyalblue));
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        margin: 0 1rem;
+    }
 }
