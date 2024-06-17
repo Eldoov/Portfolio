@@ -7,3 +7,11 @@
     --darkgreyblue: hsl(217, 19%, 24%);
     --darkblue: hsl(218, 23%, 16%);
 }
+
+body {
+    display: flex;
+    align-items: center;
+    min-height: 96vh;
+    min-width: 375px;
+    
+}
