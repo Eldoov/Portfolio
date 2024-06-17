@@ -57,11 +57,22 @@ hr {
     border: none;
     background-color: var(--green);
     margin: 2rem auto -50px auto;
+    transition-property: transform;
+    transition-duration: 1s;
 }
 
 #btn:hover {
     box-shadow: 0 0 50px var(--green);
     cursor: pointer;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }
 
 #btn img {
