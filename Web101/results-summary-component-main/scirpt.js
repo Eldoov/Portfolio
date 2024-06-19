@@ -16,10 +16,9 @@ fetch("data.json").then(response =>
 
 function showData(data) {
     let res = 0;
+    let img = document.createElement('img');
     for (i = 0; i < data.length; i++) {
         // document.getElementById("stats"+i).appendChild('stats');
-
-        var img = document.createElement('img');
 
         let category = data[i].category;
         let s = data[i].score;
