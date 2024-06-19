@@ -22,7 +22,7 @@ function showData(data) {
         var img = document.createElement('img');
 
         let category = data[i].category;
-        let s = date[i].score;
+        let s = data[i].score;
         let icon = data[i].icon;
 
         img.src = icon
