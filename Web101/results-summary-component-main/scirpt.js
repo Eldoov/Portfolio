@@ -1,11 +1,3 @@
-/*
-var score = document.createElement('div');
-score.className = 'socre';
-var stats = document.createElement('div');
-stats.className = 'stats';
-var span = document.createElement('span');
-*/
-
 fetch("data.json").then(response =>
     response.json()
 ).then(json => 
@@ -13,23 +5,28 @@ fetch("data.json").then(response =>
 );
 
 
-
 function showData(data) {
-    let res = 0;
-    let img = document.createElement('img');
+    let sum = 0;
+    let category = '';
+    let s = 0;
+    const imgarray = [];
+    
     for (i = 0; i < data.length; i++) {
         // document.getElementById("stats"+i).appendChild('stats');
+        imgarray[i] = document.createElement('img');
+        category = data[i].category;
+        s = data[i].score;
+        imgarray[i].src = data[i].icon;
 
-        let category = data[i].category;
-        let s = data[i].score;
-        let icon = data[i].icon;
-
-        img.src = icon
-        document.getElementsByClassName('stats')[i].appendChild(img);
-        document.getElementsByClassName('stats')[i].textContent = category;
+        console.log(imgarray);
+        document.getElementsByClassName('stats')[i].appendChild(imgarray[i]);
+        document.getElementsByClassName('stats')[i].innerHTML += category;
         document.getElementsByClassName('score')[i].textContent = s;
 
-        res += s;
+        sum += s;
     }
+
+    res = Math.floor(sum / 4);
+    document.getElementById('res').textContent = res;
 
 }

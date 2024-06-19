@@ -60,6 +60,7 @@ main {
 
 #res {
     font-size: 40px;
+    color: white;
 }
 
 h2 {
@@ -107,11 +108,11 @@ h4 {
     display: flex;
 }
 
-.score {
-    color: gray;
+.grey {
+    color: grey;
 }
 
-span {
+.score {
     color: var(--darkblue);
     font-weight: 700;
 }
