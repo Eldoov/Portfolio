@@ -3,42 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <img id="logo" src="images/logo.svg">
+  <main>
+    <div class="left-container">
+      <div class="left-item">
+        <h4>Bill</h4>
+        <input type="text" id="bill" placeholder="0">
+      </div>  
+      <div class="left-item">
+        <h4>Select Tip %</h4>
+        <div class="select-tip">
+          <button value="0.05">5%</button>
+          <button value="0.1">10%</button>
+          <button value="0.15">15%</button>
+          <button value="0.25">25%</button>
+          <button value="0.5">50%</button>
+          <input type="text" id="custom-tip" placeholder="Custom">
+        </div>
+      </div>
+      <div class="left-item">
+        <h4>Number of People</h4>
+        <input type="text" id="people" placeholder="0">
+      </div>
+    </div>
 
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    <div class="right-container">
+      <div id="output">
+        <div class="right-item">
+          <p>Tip Amount</p>
+          <span>/ person</span>
+        </div>
+        <h1 class="res" id="tip">$0.00</h1>
+        <div class="right-item">
+          <p>Total</p>
+          <span>/ person</span>
+        </div>
+        <h1 class="res" id="total">$0.00</h1>
+      </div>
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
