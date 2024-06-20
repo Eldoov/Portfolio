@@ -1,8 +1,8 @@
 const getBill = document.getElementById('bill');
 const customTip = document.getElementById('custom-tip');
 const getPeople = document.getElementById('people');
-const tip = document.getElementById('tip');
-const total = document.getElementById('total');
+const showTip = document.getElementById('tip');
+const showTotal = document.getElementById('total');
 const btn = document.querySelectorAll('.select-tip button');
 let selectTip = 0;
 
@@ -24,7 +24,21 @@ btn.forEach((btn) => {
 
 getBill.addEventListener("change", e => {
     bill = e.target.value;
-    console.log(bill);
+})
+
+customTip.addEventListener("change", e => {
+    tip = e.target.value;
+    if (selectTip != 0){
+        selectTip = 0;
+    }
+    showTip.innerHTML = '$' + tip;
+})
+
+
+
+
+getPeople.addEventListener("change", e => {
+    people = e.target.value;
 })
 
 function calculation(){
