@@ -85,7 +85,7 @@ input:focus {
     border: 1.5px solid var(--cyan);
 }
 
-#bill, #people-sum {
+#bill, #people {
     background-repeat: no-repeat;
     background-position: 5% 50%;
     width: 100%;
