@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --darkpurple: hsl(237, 63%, 64%);
+    --purple: hsl(236, 72%, 79%);
+    --darkgrey: hsl(232, 13%, 33%);
+    --grey: hsl(233, 13%, 49%);
+    --lightgrey: hsl(234, 14%, 74%);
+    --greywhite: hsl(240, 78%, 98%);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 375px;
+    min-height: 100vh;
+    background-color: hsla(236, 72%, 79%, 15%);
+    background-image: url(images/bg-bottom.svg), url(images/bg-top.svg);
+    background-position: left bottom, right top;
+    background-repeat: no-repeat, no-repeat;
+}
+
+.title-row {
+    margin: 2rem auto 2rem auto;
+    text-align: center;
+}
+
+.container, .toggle-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
+    margin: 0 auto auto auto;
+    text-align: center;
+}
+
+h1 {
+    color: var(--darkgrey);
+    font-size: 2.5rem;
+    margin: 1.3rem 0 0.8rem 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    margin: 0;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.middlebox {
+    background-image: linear-gradient(var(--purple), var(--darkpurple));
+    border-radius: 0.5rem;
+    padding: 2.5rem 1.5rem;
+    color: white;
+}
+
+.middlebox h1 {
+    color: white;
+}
+
+.sidebox1, .sidebox2 {
+    background-color: white;
+    padding: 1.5rem;
+}
+
+.sidebox1 {
+    margin:1rem 0 1rem 1rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.sidebox2 {
+    margin:1rem 1rem 1rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    border-top: 0.8px solid var(--lightgrey);
+}
+
+li {
+    padding: 0.8rem 3.5rem;
+    border-bottom: 0.8px solid var(--lightgrey);
+}
+
+.middlebox ul, .middlebox li {
+    border-color: var(--greywhite);
+}
+
+.box button {
+    padding: 0.6rem;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 1rem;
+}
+
+.sidebox1 button, .sidebox2 button {
+    background-image: linear-gradient(to right, var(--purple), var(--darkpurple));
+    border: 1px solid linear-gradient(to right, var(--purple), var(--darkpurple));
+    color: white;
+}
+
+.middlebox button {
+    background-color: white;
+    border: 1px solid white;
+    color: var(--darkpurple);
+}
+
+.sidebox1 button:hover, .sidebox2 button:hover {
+    background-image: none;
+    background-color: white;
+    color: var(--darkpurple);
+    border: 1px solid var(--purple);
+}
+
+.middlebox button:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.toggle-box {
+    align-items: center;
+    gap: 1rem;
+}
+
+#switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+#switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    border-radius: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.3s;
+    background-image: linear-gradient(to right, var(--purple), var(--darkpurple));
+}
+
+.slider::before {
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+
+@media screen and (max-width: 800px){
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebox1, .sidebox2 {
+        margin: 1rem 0;
+        border-radius: 0.4rem;
+    }
+
+}
