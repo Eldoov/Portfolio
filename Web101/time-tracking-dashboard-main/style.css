@@ -20,6 +20,7 @@ body, html {
 }
 
 body {
+    font-family: 'Rubik'; 
     min-height: 100vh;
     min-width: 375px;
     display: flex;
@@ -30,7 +31,7 @@ body {
 main {
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 210px);
     grid-template-rows: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
 }
@@ -45,17 +46,49 @@ main {
 .userInfo {
     border-radius: 0.7rem;
     background-color: var(--blue);
+    padding: 1.5rem 1.5rem 3.3rem 1.5rem;
+}
+
+p {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--paleBlue);
+}
+
+h1 {
+    margin-top: 0;
+    font-weight: 300;   
+}
+
+.userInfo img {
+    width: 40%;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-bottom: 1rem;
+}
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.1rem;
+    
 }
 
 a {
     text-decoration: none;
-    color: var(--desBlue);;
+    color: var(--desBlue);
+    font-weight: 300;
+    cursor: pointer;
 }
 
-img {
-    width: 30%;
-    border-radius: 50%;
-    border: 2px solid white;
+a:hover {
+    color: white;
+}
+
+.active {
+    color: white;
 }
 
 .item {
@@ -67,7 +100,35 @@ img {
     background-color: var(--darkBlue);
     color: white;
     border-radius: 0.7rem;
-    padding: 3rem 2rem;
+    padding: 1rem 1.8rem 1.5rem 1.8rem;
+}
+
+.box:hover {
+    background-color: hsl(235, 46%, 35%);
+    cursor: pointer;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0.5rem 0 1.5rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h3 img {
+    cursor: pointer;
+}
+
+h3 img:hover {
+    filter: brightness(100);
+}
+
+.box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
 }
 
 .work {
@@ -110,4 +171,46 @@ img {
     background-image: url(images/icon-self-care.svg);
     background-repeat: no-repeat;
     background-position: right 10% top -12%;
+}
+
+@media screen and (max-width: 800px){
+    main {
+        display: flex;
+        flex-direction: column;
+        margin: 2rem;
+    }
+    .userInfo {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        padding: 1.5rem;
+    }
+    .userInfo img {
+        width: 20%;
+        margin: auto;
+    }
+
+    .text-box, .userInfo p {
+        margin: auto;
+    }
+
+    .userInfo h1 {
+        font-size: 2rem;
+        font-weight: 300;
+        margin: auto;
+    }
+
+    .filter-box {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .data-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 }
