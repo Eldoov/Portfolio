@@ -25,14 +25,18 @@
         <li><img src="assets/images/icon-list.svg">Measuring to ensure updates are a success</li>
         <li><img src="assets/images/icon-list.svg">And much more!</li>
       </ul>
-      
-      <h6>Email address</h6>
-      <input type="email" placeholder="email@company.com">
-
-      <button>Subscribe to monthly newsletter</button>
+      <form id="subscribe">
+        <div class="info">
+          <h6>Email address</h6>
+          <h6 class="errorMsg hidden">Valid Email Required</h6>
+        </div>
+        <input class="email" id="email" type="text" placeholder="email@company.com" />
+        <input class="btn" type="submit" value="Subscribe to monthly newsletter" />
+      </form>
     </div>
     <div class="right-container">
-      <img src="assets/images/illustration-sign-up-desktop.svg">
+      <img class="desktop" src="assets/images/illustration-sign-up-desktop.svg">
+      <img class="mobile" src="assets/images/illustration-sign-up-mobile.svg">
     </div>
   </div>
 
@@ -41,10 +45,10 @@
     <img src="assets/images/icon-success.svg">
     <h1>Thanks for subscribing!</h1>
 
-    <p>A confirmation email has been sent to <span class="showEmail"></span>. 
+    <p>A confirmation email has been sent to <span id="showEmail">example@company.com</span>. 
     Please open it and click the button inside to confirm your subscription.</p>
 
-    <button>Dismiss message</button>
+    <div class="btn" id="dismissMsg">Dismiss message</div>
   </div>  
   <script src="script.js"></script>
 </body>

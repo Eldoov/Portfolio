@@ -2,6 +2,7 @@
 
 :root {
     --tomato: hsl(4, 100%, 67%);
+    --pink: #FF5279;
     --darkGray: hsl(234, 29%, 20%);
     --charcoalGray: hsl(235, 18%, 26%);
     --gray: hsl(231, 7%, 60%);
@@ -19,19 +20,200 @@ body {
     display: flex;
     align-items: center;
     background-color: var(--charcoalGray);
+    color: var(--darkGray);
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .box {
-    margin: auto;
+    border-radius: 1.2rem;
     background-color: white;
-    border-radius: 1rem;
 }
 
 .sign-up {
+    margin: auto;
+    height: 450px;
+    width: 700px;
+    gap: 1rem;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1rem;
+}
+
+.right-container {
+    height: inherit;
+    margin-left: auto;
+}
+
+.right-container img {
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+}
+
+.left-container {
+    display: flex;
+    padding: 3rem 0 3rem 2rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1 {
+    margin: 0 0 0.8rem 0;
+    font-size: 2.5rem;
+}
+
+p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.8rem;
+    color: var(--charcoalGray);
+}
+
+ul {
+
+    list-style-type: none;
+    padding: 0;
+    font-size: 0.8rem;
+    color: var(--charcoalGray);
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 0.7rem;
+}
+
+li img {
+    margin-right: 1rem;
+}
+
+h6 {
+    margin: 0;
+}
+
+.email {
+    border: 1px solid var(--gray);
+    padding: 0.7rem;
+    border-radius: 7px;
+    margin-top: 0.5rem;
+}
+
+.email:focus {
+    outline: none;
+    border: 1px solid var(--darkGray);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.errorMsg {
+    color: var(--tomato);
+}
+
+.error {
+    border: 1px solid var(--tomato);
+    background-color: hsla(4, 100%, 67%, 10%);
+    color: var(--tomato);
+}
+
+.error:focus {
+    border: 1px solid var(--tomato) !important;
+}
+
+.btn {
+    padding: 0.7rem;
+    border-radius: 7px;
+    background-color: var(--darkGray);
+    color: white;
+    border: none;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-image: linear-gradient(to right, var(--pink), var(--tomato));
+}
+
+.success {
+    margin: auto;
+    width: 280px;
+    height: 330px;
+    padding: 2rem 2.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.success img {
+    width: 17%;
+    margin-bottom: 2rem;
+}
+
+.success p{
+    margin: 0.5rem 0 0.8rem 0;
+}
+
+#showEmail {
+    font-weight: 700;
+}
+
+#dismissMsg {
+    text-align: center;
+}
+
+.mobile {
+    display: none;
+}
+
+
+@media screen and (max-width:800px){
+    body {
+        background-color: white;
+    }
+
+    .sign-up {
+        margin: auto;
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0
+    }
+
+    .right-container  {
+        height: 100%;
+    }
+
+    .left-container {
+        padding: 1rem 2rem;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+
+    .mobile {
+        margin-top: auto;
+        display: block;
+    }
+
+    .success {
+        height: 80vh;
+        width:100%;
+        padding: 1rem;
+    }
+
+    #dismissMsg {
+        margin-top: auto;
+    }
+
+    
 }
