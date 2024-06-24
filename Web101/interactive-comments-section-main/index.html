@@ -3,24 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Interactive comments section</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main>
+    <template class="post-template">
+      <div class="post-block">
+        <div class="rating-block">
+          <img src="images/icon-plus.svg" />
+          <h5 class="rating-score"></h5>
+          <img src="images/icon-minus.svg" />
+        </div>
+        <div class="meta-info">
+          <div class="user-info">
+            <img class="avatar" src="" />
+            <h5 class="username"></h5>
+            <div class="time-stamps"></div>
+          </div>
+          <div class="function-area">
+            <button class="reply btn">
+              <img src="images/icon-reply.svg">
+              <h5>Reply</h5>
+            </button>
+          </div>
+        </div>
+        <div class="post-content">
+        </div>
+      </div>
+    </template>
+    <template class="input-template">
+      <div class="input-block">
+        <form class="reply-form">
+          <img class="avatar" src="images/avatars/image-juliusomo.png" />
+          <textarea class="post-input" type="text"></textarea>
+          <input class="sub-btn" type="submit" value="send" />
+        </form>
+      </div>
+    </template>
+    <template class="reply-template">
+      <div class="reply-block">
+        <div class="divider"></div>
+        <div class="reply-content">
+          <div class="post-block">
+            <div class="rating-block">
+              <img src="images/icon-plus.svg" />
+              <h5 class="rating-score"></h5>
+              <img src="images/icon-minus.svg" />
+            </div>
+            <div class="meta-info">
+              <div class="user-info">
+                <img class="avatar" src="" />
+                <h5 class="username"></h5>
+                <div class="time-stamps"></div>
+              </div>
+              <div class="function-area">
+                <button class="reply btn">
+                  <img src="images/icon-reply.svg">
+                  <h5>Reply</h5>
+                </button>
+              </div>
+            </div>
+            <div class="post-content">
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    
+    
 
-  <!-- Pull dynamic content from the data.json file -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
