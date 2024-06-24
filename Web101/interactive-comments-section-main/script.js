@@ -17,9 +17,15 @@ function comments(postID, postContent, timeStamp, score, username) {
 function processData(data){
     postInfo = data.comments[0];
     let comment = new comments(postInfo.id, postInfo.content, postInfo.createdAt, postInfo.score, postInfo.user); 
-    console.log(comment.postID);
+    showComments(comment);
 }
 
-function showComments(data){
-    const newDiv = document.createElement('div');
+function showComments(comment){
+    let temp, postBlock, postContent;
+    var mainElement = document.querySelector('main');
+    temp = document.getElementById("post-template");
+    postBlock = temp.content.querySelector(".post-block");
+    postContent = temp.content.querySelector(".post-content");
+    postContent.textContent = comment.postContent;
+    mainElement.appendChild(postBlock);
 }

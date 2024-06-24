@@ -116,7 +116,7 @@ h5 {
     filter: brightness(0) saturate(100%) invert(34%) sepia(55%) saturate(682%) hue-rotate(200deg) brightness(94%) contrast(93%);
 }
 
-.post-content p{
+.post-content {
     margin: 0;
     color: var(--grayBlue);
 }
