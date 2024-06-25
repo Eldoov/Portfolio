@@ -10,12 +10,12 @@
 <body>
   <main>
     <template id="post-template">
-      <div class="post">
+      <div class="post getBlock" id="postID">
         <div class="post-block">
-          <div class="rating-block">
-            <img src="images/icon-plus.svg" />
+          <div class="rating-block" id="scoreID">
+            <img class="plus" src="images/icon-plus.svg" />
             <h5 class="rating-score"></h5>
-            <img src="images/icon-minus.svg" />
+            <img class="minus" src="images/icon-minus.svg" />
           </div>
           <div class="meta-info">
             <div class="user-info">
@@ -24,7 +24,7 @@
               <div class="time-stamps"></div>
             </div>
             <div class="function-area">
-              <button class="reply-btn btn">
+              <button class="reply-btn btn" id="replyBtnID">
                 <img src="images/icon-reply.svg">
                 <h5>Reply</h5>
               </button>
@@ -33,43 +33,25 @@
           <div class="post-content">
           </div>
         </div>
-      </div>
-      <div class="input-block hidden">
-        <form class="reply-form">
-          <img class="avatar" src="images/avatars/image-juliusomo.png" />
-          <textarea class="post-input" type="text"></textarea>
-          <input class="sub-btn" type="submit" value="send" />
-        </form>
-      </div>
-    </template>
-    <template id="reply-template">
-      <div class="reply-block">
-        <div class="divider"></div>
-        <div class="reply-content">
-          <div class="post-block">
-            <div class="rating-block">
-              <img src="images/icon-plus.svg" />
-              <h5 class="rating-score"></h5>
-              <img src="images/icon-minus.svg" />
-            </div>
-            <div class="meta-info">
-              <div class="user-info">
-                <img class="avatar" src="" />
-                <h5 class="username"></h5>
-                <div class="time-stamps"></div>
-              </div>
-              <div class="function-area">
-                <button class="reply btn">
-                  <img src="images/icon-reply.svg">
-                  <h5>Reply</h5>
-                </button>
-              </div>
-            </div>
-            <div class="post-content">
-            </div>
-          </div>
+        <div class="input-block hidden" id="inputID">
+          <form class="reply-form">
+            <img class="avatar" src="images/avatars/image-juliusomo.png" />
+            <textarea class="post-input" type="text"></textarea>
+            <input class="sub-btn" type="submit" value="send" />
+          </form>
+        </div>
+        <div class="reply-block">
+          <div class="divider"></div>
+          <div class="reply-content" id="replyID"></div>
         </div>
       </div>
+    </template>
+    <template class="input-template">
+      <form class="reply-form">
+        <img class="avatar" src="images/avatars/image-juliusomo.png" />
+        <textarea class="post-input" type="text"></textarea>
+        <input class="sub-btn" type="submit" value="send" />
+      </form>
     </template>
   </main>
   <script src="script.js"></script>
