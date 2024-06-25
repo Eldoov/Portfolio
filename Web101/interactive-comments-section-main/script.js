@@ -1,4 +1,5 @@
-const replyBtn = document.querySelectorAll('reply');
+
+
 
 fetch("data.json").then(response =>
     response.json()
@@ -22,33 +23,50 @@ function processData(data){
         let comment = new comments(postInfo.id, postInfo.content, postInfo.createdAt, postInfo.score, postInfo.user.image.png, postInfo.user.username);
         showComments(comment);
     }
+    getReply();
 }
 
 function showComments(comment){
-    let temp, postBlock, postContent, user, avatar, time, score;
+    let temp, post, postContent, user, avatar, time, score, reply;
     var mainElement = document.querySelector('main');
 
     temp = document.getElementById("post-template");
     let clon = temp.content.cloneNode(true);
 
-    postBlock = clon.querySelector(".post");
+    post = clon.querySelector(".post");
     user = clon.querySelector(".username");
     avatar = clon.querySelector(".avatar");
     time = clon.querySelector(".time-stamps");
     score = clon.querySelector(".rating-score");
     postContent = clon.querySelector(".post-content");
+    reply =  clon.querySelector(".input-block")
 
     user.textContent = comment.username;
     avatar.src = comment.avatar;
     time.textContent = comment.timeStamp;
     score.textContent = comment.score;
     postContent.textContent = comment.postContent;
-    mainElement.appendChild(postBlock);
+    mainElement.appendChild(post);
+    mainElement.appendChild(reply);
 }
 
-
-replyBtn.forEach((replyBtn) => {
-    replyBtn.addEventListener("click", e => {
-
-    })
-})
+function getReply() {
+    const replyBtns = document.querySelectorAll('.reply-btn');
+    const replyBlock = document.getElementsByClassName('input-block');
+    let tmp = -1;
+    let index;
+    replyBtns.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+            index = Array.prototype.indexOf.call(replyBtns, event.currentTarget);
+            console.log(index, tmp); 
+            if (index == tmp){
+                replyBlock.item(index).classList.add("hidden");
+                tmp = -1;
+            }else {
+                event.currentTarget.classList.add("selectre");
+                replyBlock.item(index).classList.remove("hidden");
+                tmp = index;
+            }
+        });
+    });
+}
