@@ -1,11 +1,9 @@
-
-
-
 fetch("data.json").then(response =>
     response.json()
-).then(data =>
-    getPost(data.comments)
-);
+).then(data => {
+    getPost(data.comments, "", 0);
+    getReply();
+});
 
 function comments(postID, postContent, timeStamp, score, avatar, username) {
     this.postID = postID;
@@ -15,8 +13,8 @@ function comments(postID, postContent, timeStamp, score, avatar, username) {
     this.avatar = avatar;
     this.username = username;
 }
-
-function getPost(data) {
+/*
+function getPost0(data) {
     let replies = [];
     for (let i = 0; i < data.length; i++){
         replies = data[i].replies;
@@ -37,8 +35,26 @@ function getReplies(data, dataID) {
         if (replies === undefined){
             console.log("");
         } else if (replies.length != 0) {
-            console.log(reply.postID);
+            //console.log(reply.postID);
             getReplies(replies, reply.postID);
+        }
+    }
+}
+*/
+function getPost(data, dataID, recurrsion){
+    for(let i = 0; i < data.length; i++){
+        replies = data[i].replies;
+        post = createPost(data[i]);
+        if (recurrsion == 0){
+            showPost(post, dataID);
+        } else {
+            showPost(post, "replyID"+dataID);
+        }
+        if (replies === undefined){
+            recurrsion -= 1;
+        } else if (replies.length != 0) {
+            recurrsion += 1;
+            getPost(replies, post.postID, recurrsion);
         }
     }
 }
@@ -54,11 +70,12 @@ function showPost(comment, repID){
     let replyID, scoreID, inputID, postID;
     let replyBtnID;
 
+
+    temp = document.getElementById("post-template");
+
     if (repID == ""){
-        temp = document.getElementById("post-template");
         mainElement = document.querySelector('main');
     }else {
-        temp = document.getElementById("post-template");
         mainElement = document.getElementById(repID);
     }
 
@@ -97,23 +114,15 @@ function showPost(comment, repID){
 
 function getReply() {
     const replyBtns = document.querySelectorAll('.reply-btn');
-    const replyBlock = document.querySelectorAll('.input-block');
-    
     replyBtns.forEach((btn) => {
         btn.addEventListener('click', e => {
-            const selected = document.querySelector('.selected');
             let x = e.currentTarget.id.replace(/^\D+/g, '');
-            let y = -1;
-            if (selected) {
-                selected.classList.add("hidden");
-                y = selected.id.replace(/^\D+/g, '');
-                selected.classList.remove("selected");
+            let replyblk = document.getElementById('inputID'+x);
+            if (replyblk.classList.contains("hidden")){
+                replyblk.classList.remove("hidden");
+            } else if (!replyblk.classList.contains("hidden")){
+                replyblk.classList.add("hidden");
             }
-            if (x != y){
-                replyBlock.item(x-1).classList.remove("hidden");
-                replyBlock.item(x-1).classList.add("selected");
-            }
-            
         });
     });
 }
