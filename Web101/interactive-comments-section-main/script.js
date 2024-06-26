@@ -23,13 +23,24 @@ function getPost(data) {
         comment = createPost(data[i]);
         showPost(comment, "");
         if (replies.length != 0){
-            for(let j = 0; j < replies.length; j++){
-                reply = createPost(replies[j]);
-                showPost(reply, "replyID"+comment.postID);
-            }
+            getReplies(replies, comment.postID);
         } 
     }
     getReply();
+}
+
+function getReplies(data, dataID) {
+    for(let j = 0; j < data.length; j++){
+        replies = data[j].replies;
+        reply = createPost(data[j]);
+        showPost(reply, "replyID"+dataID);
+        if (replies === undefined){
+            console.log("");
+        } else if (replies.length != 0) {
+            console.log(reply.postID);
+            getReplies(replies, reply.postID);
+        }
+    }
 }
 
 
@@ -90,9 +101,19 @@ function getReply() {
     
     replyBtns.forEach((btn) => {
         btn.addEventListener('click', e => {
+            const selected = document.querySelector('.selected');
             let x = e.currentTarget.id.replace(/^\D+/g, '');
-            console.log(x);
-            replyBlock.item(x-1).classList.remove("hidden");
+            let y = -1;
+            if (selected) {
+                selected.classList.add("hidden");
+                y = selected.id.replace(/^\D+/g, '');
+                selected.classList.remove("selected");
+            }
+            if (x != y){
+                replyBlock.item(x-1).classList.remove("hidden");
+                replyBlock.item(x-1).classList.add("selected");
+            }
+            
         });
     });
 }
