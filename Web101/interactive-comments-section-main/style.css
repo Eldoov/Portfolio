@@ -39,7 +39,6 @@ main {
     grid-template-columns: auto auto;
     column-gap: 1rem;
     border-radius: 10px;
-    margin-bottom: 1rem;
 }
 
 .rating-block {
@@ -122,12 +121,10 @@ h5 {
 }
 
 .input-block {
-    margin-top: -10px;
-    margin-bottom: 1rem;
+    margin-top: 0.3rem;
     background-color: white;
     padding: 1.5rem;
     border-radius: 10px;
-
 }
 
 .reply-form {
@@ -165,6 +162,7 @@ h5 {
 }
 
 .reply-block {
+    padding-top: 1rem;
     display: flex;
     flex-direction: row;
 }
@@ -172,6 +170,7 @@ h5 {
 .reply-content {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 

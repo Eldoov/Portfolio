@@ -1,9 +1,20 @@
+const scoreMap = new Map();
+
 fetch("data.json").then(response =>
     response.json()
 ).then(data => {
+    if (!localStorage.getItem('FMCommentData')){
+        localStorage.setItem('FMCommentData', JSON.stringify(data));   
+    }
+    loadData();
+});
+
+
+function loadData(){
+    const data = JSON.parse(localStorage.getItem('FMCommentData'));
     getPost(data.comments, "", 0);
     getReply();
-});
+}
 
 function comments(postID, postContent, timeStamp, score, avatar, username) {
     this.postID = postID;
@@ -59,16 +70,28 @@ function getPost(data, dataID, recurrsion){
     }
 }
 
+function scoreUpdate(postID, change){
+    let data = JSON.parse(localStorage.getItem('FMCommentData'));
+    if (scoreMap.get(postID)){
+        x = scoreMap.get(postID);
+        x += change;
+        scoreMap.set(postID, x);
+        s = document.getElementById("scoreID"+postID).getElementsByClassName('rating-score')[0];
+        s.innerHTML = x;
+    }
+
+}
 
 function createPost(postInfo){
     let comment = new comments(postInfo.id, postInfo.content, postInfo.createdAt, postInfo.score, postInfo.user.image.png, postInfo.user.username);
+    scoreMap.set(comment.postID, comment.score);
     return comment;
 }
 
 function showPost(comment, repID){
     let temp, post, postContent, user, avatar, time, score, reply, mainElement;
     let replyID, scoreID, inputID, postID;
-    let replyBtnID;
+    let replyBtnID, plusBtn, minusBtn;
 
 
     temp = document.getElementById("post-template");
@@ -94,14 +117,21 @@ function showPost(comment, repID){
     inputID = clon.getElementById("inputID");
     postID = clon.getElementById("postID");
     replyBtnID = clon.getElementById("replyBtnID");
-    
 
+    plusBtn = clon.getElementById("plus");
+    minusBtn = clon.getElementById("minus");
+
+    plusBtn.setAttribute('onclick','scoreUpdate(' + comment.postID +', 1)');
+    minusBtn.setAttribute('onclick','scoreUpdate(' + comment.postID +', -1)');
+    
     user.textContent = comment.username;
     avatar.src = comment.avatar;
     time.textContent = comment.timeStamp;
     score.textContent = comment.score;
     postContent.textContent = comment.postContent;
 
+    plusBtn.removeAttribute('id');
+    minusBtn.removeAttribute('id');
     postID.setAttribute("id", "postID"+comment.postID);
     replyID.setAttribute("id", "replyID"+comment.postID);
     scoreID.setAttribute("id", "scoreID"+comment.postID);
