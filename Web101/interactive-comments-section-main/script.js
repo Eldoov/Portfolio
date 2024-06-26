@@ -30,9 +30,9 @@ function getPost(data) {
 }
 
 function getReplies(data, dataID) {
-    for(let j = 0; j < data.length; j++){
-        replies = data[j].replies;
-        reply = createPost(data[j]);
+    for(let i = 0; i < data.length; i++){
+        replies = data[i].replies;
+        reply = createPost(data[i]);
         showPost(reply, "replyID"+dataID);
         if (replies === undefined){
             console.log("");
