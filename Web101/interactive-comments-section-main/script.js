@@ -1,5 +1,3 @@
-const scoreMap = new Map();
-
 fetch("data.json").then(response =>
     response.json()
 ).then(data => {
@@ -16,54 +14,31 @@ function loadData(){
     getReply();
 }
 
-function comments(postID, postContent, timeStamp, score, avatar, username) {
+function comments(postID, postContent, timeStamp, avatar, username) {
     this.postID = postID;
     this.postContent = postContent;
     this.timeStamp = timeStamp;
-    this.score = score;
     this.avatar = avatar;
     this.username = username;
 }
-/*
-function getPost0(data) {
-    let replies = [];
-    for (let i = 0; i < data.length; i++){
-        replies = data[i].replies;
-        comment = createPost(data[i]);
-        showPost(comment, "");
-        if (replies.length != 0){
-            getReplies(replies, comment.postID);
-        } 
-    }
-    getReply();
-}
 
-function getReplies(data, dataID) {
-    for(let i = 0; i < data.length; i++){
-        replies = data[i].replies;
-        reply = createPost(data[i]);
-        showPost(reply, "replyID"+dataID);
-        if (replies === undefined){
-            console.log("");
-        } else if (replies.length != 0) {
-            //console.log(reply.postID);
-            getReplies(replies, reply.postID);
-        }
-    }
-}
-*/
 function getPost(data, dataID, recurrsion){
     for(let i = 0; i < data.length; i++){
         replies = data[i].replies;
+        if (replies === undefined || replies.length == 0) {
+            hasReply = false; 
+        } else {
+            hasReply = true;
+        }
         post = createPost(data[i]);
         if (recurrsion == 0){
-            showPost(post, dataID);
+            showPost(post, dataID, hasReply);
         } else {
-            showPost(post, "replyID"+dataID);
+            showPost(post, "replyID"+dataID, hasReply);
         }
-        if (replies === undefined){
+        if (hasReply == false && recurrsion > 0){
             recurrsion -= 1;
-        } else if (replies.length != 0) {
+        } else if (hasReply == true) {
             recurrsion += 1;
             getPost(replies, post.postID, recurrsion);
         }
@@ -71,11 +46,11 @@ function getPost(data, dataID, recurrsion){
 }
 
 function scoreUpdate(postID, change){
-    let data = JSON.parse(localStorage.getItem('FMCommentData'));
-    if (scoreMap.get(postID)){
-        x = scoreMap.get(postID);
+    if (localStorage.getItem('FMCommentDataScore'+postID) != null){
+        x = localStorage.getItem('FMCommentDataScore'+postID);
+        x = Number(x);
         x += change;
-        scoreMap.set(postID, x);
+        localStorage.setItem("FMCommentDataScore"+postID, x);
         s = document.getElementById("scoreID"+postID).getElementsByClassName('rating-score')[0];
         s.innerHTML = x;
     }
@@ -83,21 +58,22 @@ function scoreUpdate(postID, change){
 }
 
 function createPost(postInfo){
-    let comment = new comments(postInfo.id, postInfo.content, postInfo.createdAt, postInfo.score, postInfo.user.image.png, postInfo.user.username);
-    scoreMap.set(comment.postID, comment.score);
+    let comment = new comments(postInfo.id, postInfo.content, postInfo.createdAt, postInfo.user.image.png, postInfo.user.username);
+    if (localStorage.getItem("FMCommentDataScore"+postInfo.id) == null){
+        localStorage.setItem("FMCommentDataScore"+postInfo.id, postInfo.score);
+    }
     return comment;
 }
 
-function showPost(comment, repID){
+function showPost(comment, repID, hasReply){
     let temp, post, postContent, user, avatar, time, score, reply, mainElement;
     let replyID, scoreID, inputID, postID;
     let replyBtnID, plusBtn, minusBtn;
 
-
     temp = document.getElementById("post-template");
 
     if (repID == ""){
-        mainElement = document.querySelector('main');
+        mainElement = document.getElementById('allPosts');
     }else {
         mainElement = document.getElementById(repID);
     }
@@ -111,6 +87,11 @@ function showPost(comment, repID){
     score = clon.querySelector(".rating-score");
     postContent = clon.querySelector(".post-content");
     reply =  clon.querySelector(".input-block");
+    replyBlock = clon.querySelector(".reply-block");
+    
+    if (hasReply == false){
+        replyBlock.classList.add('hidden');
+    }
 
     scoreID = clon.getElementById("scoreID");
     replyID = clon.getElementById("replyID");
@@ -127,7 +108,7 @@ function showPost(comment, repID){
     user.textContent = comment.username;
     avatar.src = comment.avatar;
     time.textContent = comment.timeStamp;
-    score.textContent = comment.score;
+    score.textContent = localStorage.getItem('FMCommentDataScore'+comment.postID);
     postContent.textContent = comment.postContent;
 
     plusBtn.removeAttribute('id');
