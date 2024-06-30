@@ -1,20 +1,49 @@
+let postNum = 1;
+
 fetch("data.json").then(response =>
     response.json()
 ).then(data => {
     if (!localStorage.getItem('FMCommentData')){
-        localStorage.setItem('FMCommentData', JSON.stringify(data));   
+        localStorage.setItem('FMCommentData', JSON.stringify(data));  
     }
     loadData();
+    if (localStorage.getItem('FMnewComment')){
+        //loadData();
+    }
+    repForm();
 });
 
+function reset() {
+    for (let i = 0; i < postNum; i++){
+        localStorage.removeItem('FMCommentDataScore'+i);
+        localStorage.removeItem('FMnewComment'+i);
+    }
+    localStorage.removeItem('FMnewComment');
+    localStorage.removeItem('FMCommentData');
+    localStorage.removeItem('FMCurrentUser');
+    location.reload();
+}
 
 function loadData(){
     const data = JSON.parse(localStorage.getItem('FMCommentData'));
+    localStorage.setItem('FMCurrentUser', JSON.stringify(data.currentUser));
+    getPost(data.comments, "", 0);
+    getReply();
+}
+
+function loadNewData(){
+    for(let i = 0; i < (postNum - 4); i++){
+
+    }
+
+    const data = JSON.parse(localStorage.getItem('FMCommentData'));
+    localStorage.setItem('FMCurrentUser', JSON.stringify(data.currentUser));
     getPost(data.comments, "", 0);
     getReply();
 }
 
 function comments(postID, postContent, timeStamp, avatar, username) {
+    postNum += 1;
     this.postID = postID;
     this.postContent = postContent;
     this.timeStamp = timeStamp;
@@ -36,9 +65,9 @@ function getPost(data, dataID, recurrsion){
         } else {
             showPost(post, "replyID"+dataID, hasReply);
         }
-        if (hasReply == false && recurrsion > 0){
+        if (replies === undefined){
             recurrsion -= 1;
-        } else if (hasReply == true) {
+        } else if (replies.length != 0) {
             recurrsion += 1;
             getPost(replies, post.postID, recurrsion);
         }
@@ -72,10 +101,11 @@ function showPost(comment, repID, hasReply){
 
     temp = document.getElementById("post-template");
 
-    if (repID == ""){
+    if (repID == "" || repID == null){
         mainElement = document.getElementById('allPosts');
     }else {
         mainElement = document.getElementById(repID);
+        mainElement.parentNode.classList.remove("hidden");
     }
 
     let clon = temp.content.cloneNode(true);
@@ -120,7 +150,6 @@ function showPost(comment, repID, hasReply){
     replyBtnID.setAttribute("id", "replyBtnID"+comment.postID);
 
     mainElement.appendChild(post);
-    //mainElement.appendChild(reply);
 }
 
 function getReply() {
@@ -137,3 +166,34 @@ function getReply() {
         });
     });
 }
+
+
+function repForm(){
+    const form = document.querySelectorAll("form");
+    form.forEach(form => {
+        form.addEventListener(("submit"), e => {
+            e.preventDefault();
+            const input = e.target.querySelector("textarea");
+            const parentID = e.target.parentElement.id;
+            document.getElementById(parentID).classList.add("hidden");
+            newPost(input.value, "replyID"+parentID.replace(/^\D+/g, ''));
+            input.value = "";
+        })
+    })
+}
+
+
+function newPost(content, parentID){
+    if (!localStorage.getItem('FMnewComment')){
+        localStorage.setItem('FMnewComment', true);
+    }
+    var d = new Date();
+    d = d.toLocaleString();
+
+    const currentUser = JSON.parse(localStorage.getItem('FMCurrentUser'));
+    const comment = new comments(postNum, content, d, currentUser.image.png, currentUser.username);
+    localStorage.setItem("FMCommentDataScore"+comment.postID, 0);
+    localStorage.setItem('FMnewComment'+comment.postID, JSON.stringify(comment));
+    showPost(comment, parentID, false);
+}
+

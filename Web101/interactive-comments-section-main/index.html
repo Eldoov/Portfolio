@@ -49,7 +49,7 @@
     <template class="input-template">
       <form class="reply-form">
         <img class="avatar" src="images/avatars/image-juliusomo.png" />
-        <textarea class="post-input" type="text"></textarea>
+        <textarea class="post-input" name="input-content" type="text"></textarea>
         <input class="sub-btn" type="submit" value="send" />
       </form>
     </template>
@@ -57,15 +57,17 @@
       
     </div>
     <div class="commentArea">
-      <div class="input-block" id="inputID">
-        <form class="reply-form">
+      <div class="input-block">
+        <form class="reply-form" id="input-form">
           <img class="avatar" src="images/avatars/image-juliusomo.png" />
-          <textarea class="post-input" type="text"></textarea>
+          <textarea class="post-input" id="input-content" name="input-content" type="text"></textarea>
           <input class="sub-btn" type="submit" value="send" />
         </form>
       </div>
     </div>
+    
   </main>
+  <div class="resetBtn" onclick="reset()">Reset</div>
   <script src="script.js"></script>
 </body>
 </html>
